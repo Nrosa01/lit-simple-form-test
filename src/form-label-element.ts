@@ -52,7 +52,6 @@ export class FormLabelElement extends LitElement {
           <div class="mt-4">
             <div>
               <label class="block" for="${this.title}">${this.title}</label>
-                <p>Value ${this.value}, Condition ${this.condition}</p>
                 <input
                 placeholder="${this.title}"
                 .value="${this.value}"

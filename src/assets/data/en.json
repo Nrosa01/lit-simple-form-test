@@ -1,0 +1,16 @@
+{
+    "Tittle": "LTS",
+    "Description": "Long Term Suffering",
+    "Name": "Name",
+    "Email": "Email",
+    "Password": "Password",
+    "Confirm Password": "Confirm Password",
+    "CreateAccount": "Create Account",
+    "Login": "Login",
+    "Already have an account?": "Already have an account?",
+    "NameErrorLabel": "Name must be at least 4 characters long",
+    "EmailErrorLabel": "Email must be in the format user@domain.com",
+    "PasswordErrorLabel": "Password must be 8 characters long, contain at least 1 uppercase letter, 1 lowercase letter, and 1 number",
+    "NoSpecialCharacters": "Password cannot contain special characters",
+    "ConfirmPasswordErrorLabel": "Passwords do not match"
+}
