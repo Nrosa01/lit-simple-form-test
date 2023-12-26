@@ -1,11 +1,9 @@
 import { LitElement, PropertyValueMap, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
-import { TWStyles } from "./tailwind/twlit.js";
+import { TailwindElement } from './core/tailwind'
 
 @customElement('form-label-element')
-export class FormLabelElement extends LitElement {
-  static styles = [css``, TWStyles];
-
+export class FormLabelElement extends TailwindElement {
   @property()
   title = "Title";
 

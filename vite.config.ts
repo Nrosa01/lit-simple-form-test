@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
+import litCss from 'vite-plugin-lit-css'
 
 const base = process.env.VITE_BASE ?? "/"
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [],
-  base
+  plugins: [litCss()],
+  base: base,
 })

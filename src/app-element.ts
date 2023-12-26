@@ -1,13 +1,11 @@
 import { LitElement, TemplateResult, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
-import { TWStyles } from "./tailwind/twlit.js";
+import { TailwindElement } from './core/tailwind'
 import Texts from "./assets/data/en.json";
 // import { FormLabelElement } from "./form-label-element";
 
 @customElement('app-element')
-export class AppElement extends LitElement {
-    static styles = [css``, TWStyles];
-
+export class AppElement extends TailwindElement {
     private isEmpty(str: string): boolean {
         return !str || 0 === str.length;
     }
@@ -89,6 +87,7 @@ export class AppElement extends LitElement {
 
     protected render(): unknown {
         return html`            
+    <main>
         <div class="flex items-center justify-center min-h-screen bg-gray-100">
             <div transition:scale="{{duration: 500, delay: 50}}" class="px-8 py-6 mx-4 mt-4 mb-4 text-left bg-white shadow-lg md:w-1/2 lg:w-1/3 sm:w-1/3">
                 <div class="flex justify-center">
@@ -130,6 +129,7 @@ export class AppElement extends LitElement {
                 </form>
             </div>
         </div>
+    </main>
         `
     }
 }

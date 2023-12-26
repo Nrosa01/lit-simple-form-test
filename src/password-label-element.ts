@@ -1,14 +1,12 @@
 import { LitElement, PropertyValueMap, css, html } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
-import { TWStyles } from "./tailwind/twlit.js";
+import { TailwindElement } from './core/tailwind'
 
 import eye from "/eye.svg";
 import eye_slash from "/eye-slash.svg";
 
 @customElement("password-label-element")
-export class PasswordLabelElement extends LitElement {
-  static styles = [css``, TWStyles];
-
+export class PasswordLabelElement extends TailwindElement {
   private togglePasswordVisibility() {
     this.type = `${this.isVisible ? "password" : "text"}`;
     this.inputField.type = this.type;

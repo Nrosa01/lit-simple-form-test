@@ -1,11 +1,9 @@
 import { LitElement, PropertyValues, css, html } from 'lit'
 import { customElement, property, query, state } from 'lit/decorators.js'
-import { TWStyles } from "./tailwind/twlit.js";
+import { TailwindElement } from './core/tailwind'
 
 @customElement('large-button-element')
-export class LargeButtonElement extends LitElement {
-    static styles = [css``, TWStyles];
-
+export class LargeButtonElement extends TailwindElement {
     @state()
     funnyMode = true;
 

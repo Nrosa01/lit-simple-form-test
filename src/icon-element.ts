@@ -1,12 +1,10 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { TWStyles } from "./tailwind/twlit.js";
+import { TailwindElement } from './core/tailwind'
 import unity from '/unity.svg'
 
 @customElement('icon-element')
-export class IconElement extends LitElement {
-    static styles = [css``, TWStyles];
-
+export class IconElement extends TailwindElement {
     protected render(): unknown {
         return html`
               <img
