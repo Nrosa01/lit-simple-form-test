@@ -1,5 +1,5 @@
-import { LitElement, css, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { html } from 'lit'
+import { customElement } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
 import unity from '/unity.svg'
 

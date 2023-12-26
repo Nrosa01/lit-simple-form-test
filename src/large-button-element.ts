@@ -1,4 +1,4 @@
-import { LitElement, PropertyValues, css, html } from 'lit'
+import { PropertyValues, html } from 'lit'
 import { customElement, property, query, state } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
 

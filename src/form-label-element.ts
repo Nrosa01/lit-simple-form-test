@@ -1,5 +1,5 @@
-import { LitElement, PropertyValueMap, css, html } from 'lit'
-import { customElement, property, state } from 'lit/decorators.js'
+import { html } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
 
 @customElement('form-label-element')

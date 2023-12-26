@@ -1,9 +1,9 @@
-import { LitElement, css, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { html } from 'lit'
+import { customElement } from 'lit/decorators.js'
 import { TailwindElement } from './core/tailwind'
 
 @customElement('template-element')
-export class TemplateElement extends LitElement {
+export class TemplateElement extends TailwindElement {
     protected render(): unknown {
         return html`
               <p>template</p>
