@@ -6,12 +6,6 @@ import { TWStyles } from "../tailwind/twlit.js";
 export class FormLabelElement extends LitElement {
   static styles = [css``, TWStyles];
 
-  protected willUpdate(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
-    if (_changedProperties.has('condition')) {
-      this.classes = `w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 ${this.condition ? this.conditionMetClass : this.conditionNotMetClass}`;
-    }
-  }
-
   @property()
   title = "Title";
 
@@ -21,20 +15,15 @@ export class FormLabelElement extends LitElement {
   @property({ type: Boolean })
   condition = true;
 
-  @property()
   conditionMetClass = "focus:ring-blue-600";
-
-  @property()
   conditionNotMetClass = "border-red-600 focus:ring-transparent";
-
-  @property()
-  classes = `w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 ${this.condition ? this.conditionMetClass : this.conditionNotMetClass}`;
+  base_styles = `w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1`;
 
   protected onInput(e: Event): void {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
 
-    // Dispatches an event that bubbles through the DOM.
+    // Dispatches an event that bubbles through the DOM, this passes shadow DOM boundaries (composed property)
     this.dispatchEvent(
       new CustomEvent('onInput', {
         detail: {
@@ -55,7 +44,7 @@ export class FormLabelElement extends LitElement {
                 <input
                 placeholder="${this.title}"
                 .value="${this.value}"
-                class="${this.classes}"
+                class="${this.base_styles} ${this.condition ? this.conditionMetClass : this.conditionNotMetClass}"
                 @input="${this.onInput}"
                 /> </label
                 ></label>

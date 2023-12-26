@@ -9,16 +9,6 @@ import eye_slash from "/eye-slash.svg";
 export class PasswordLabelElement extends LitElement {
   static styles = [css``, TWStyles];
 
-  protected willUpdate(
-    _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
-  ): void {
-    if (_changedProperties.has("condition")) {
-      this.classes = `w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 ${
-        this.condition ? this.conditionMetClass : this.conditionNotMetClass
-      }`;
-    }
-  }
-
   private togglePasswordVisibility() {
     this.type = `${this.isVisible ? "password" : "text"}`;
     this.inputField.type = this.type;
@@ -28,6 +18,10 @@ export class PasswordLabelElement extends LitElement {
 
   type = "password";
   isVisible = false;
+
+  conditionMetClass = "focus:ring-blue-600";
+  conditionNotMetClass = "border-red-600 focus:ring-transparent";
+  base_styles = `w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1`;
 
   @query("#inputField")
   inputField!: HTMLInputElement;
@@ -43,26 +37,15 @@ export class PasswordLabelElement extends LitElement {
 
   @property({ type: Boolean })
   condition = true;
-
-  @property()
-  conditionMetClass = "focus:ring-blue-600";
-
+  
   @property({ type: Boolean })
   disabled = false;
-
-  @property()
-  conditionNotMetClass = "border-red-600 focus:ring-transparent";
-
-  @property()
-  classes = `w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 ${
-    this.condition ? this.conditionMetClass : this.conditionNotMetClass
-  }`;
 
   protected onInput(e: Event): void {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
 
-    // Dispatches an event that bubbles through the DOM.
+    // Dispatches an event that bubbles through the DOM, this passes shadow DOM boundaries (composed property)
     this.dispatchEvent(
       new CustomEvent("onInput", {
         detail: {
@@ -85,7 +68,7 @@ export class PasswordLabelElement extends LitElement {
             id="inputField"
             placeholder="${this.title}"
             .value="${this.value}"
-            class="${this.classes}"
+            class="${this.base_styles} ${this.condition ? this.conditionMetClass : this.conditionNotMetClass}"
             .disabled="${this.disabled}"
             type="password"
             @input="${this.onInput}"
@@ -98,7 +81,7 @@ export class PasswordLabelElement extends LitElement {
               tabindex="-1"
               type="button"
               class="w-full h-full text-gray-500 focus:outline-none focus:text-gray-600 m-1 bg-white hover:bg-gray-200 hover:rounded-md duration-200"
-              @click="${() => this.togglePasswordVisibility()}"
+              @click="${this.togglePasswordVisibility}"
               href="#"
             >
               <img src="${this.icon}" alt="eye" />

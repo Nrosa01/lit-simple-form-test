@@ -108,7 +108,7 @@ export class AppElement extends LitElement {
                     <div ?hidden=${this.isValidEmail} transition:slide class="text-xs text-red-400 font-medium">${Texts["EmailErrorLabel"]}</div>
 
                     <!--- Password label --->
-                    <password-label-element title=${Texts["Password"]} ?condition=${this.isValidPassword} value=${this.password} @onInput=${this.onInput}></password-label-element>
+                    <password-label-element title=${Texts["Password"]} ?condition=${this.isValidPassword && !this.containsSpecialCharacters(this.password)} value=${this.password} @onInput=${this.onInput}></password-label-element>
                     <div class="inline flex-col">
                         <div ?hidden=${this.isValidPassword} transition:slide class="text-xs text-red-400 font-medium">${Texts["PasswordErrorLabel"]}</div>
                         <div ?hidden=${!this.containsSpecialCharacters(this.password)} transition:slide class="text-xs text-red-400 font-medium">${Texts["NoSpecialCharacters"]}</div>

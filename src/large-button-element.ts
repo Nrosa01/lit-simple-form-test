@@ -33,6 +33,7 @@ export class LargeButtonElement extends LitElement {
     @property({ type: String })
     classes = `${this.buttonClassBase} ${this.canBeClicked ? this.canClickButtonClass : this.cantClickButtonClass} ${this.funnyModeClass}`;
 
+    // I could just put these classes directly in the html and not have to do this, but I want to keep this as a reference
     willUpdate(changedProperties: PropertyValues) {
         if (changedProperties.has('buttonClassBase') || changedProperties.has('canBeClicked') || changedProperties.has('canClickButtonClass') || changedProperties.has('cantClickButtonClass') || changedProperties.has('funnyModeClass')) {
             this.classes = `${this.buttonClassBase} ${this.canBeClicked ? this.canClickButtonClass : this.cantClickButtonClass} ${this.funnyModeClass}`;
