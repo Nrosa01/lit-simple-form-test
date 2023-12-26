@@ -45,7 +45,7 @@ jobs:
           VITE_BASE: lit-simple-form-test
 
       - name: Upload compiled source
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: website
           path: dist/
