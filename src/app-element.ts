@@ -60,6 +60,9 @@ export class AppElement extends LitElement {
             default:
                 break;
         }
+
+        let fieldsNotEmpty = !this.isEmpty(this.name) && !this.isEmpty(this.email) && !this.isEmpty(this.password) && !this.isEmpty(this.confirmPassword);
+        this.isFormValid = this.isValidName && this.isValidEmail && this.isValidPassword && this.isValidConfirmPassword && fieldsNotEmpty;
     }
 
     // Non reactive properties
@@ -80,6 +83,9 @@ export class AppElement extends LitElement {
 
     @state()
     isValidConfirmPassword: boolean = this.isPasswordMatch(this.password, this.confirmPassword) || this.isEmpty(this.confirmPassword);
+
+    @state()
+    isFormValid = false
 
     protected render(): unknown {
         return html`            
@@ -111,6 +117,9 @@ export class AppElement extends LitElement {
                     <!--- Confirm Password label --->
                     <password-label-element title=${Texts["Confirm Password"]} ?condition=${this.isValidConfirmPassword} ?disabled=${!this.isPassword(this.password) || this.isEmpty(this.password)} value=${this.confirmPassword} @onInput=${this.onInput}></password-label-element>
                     <div ?hidden=${this.isValidConfirmPassword} transition:slide class="text-xs text-red-400 font-medium">${Texts["ConfirmPasswordErrorLabel"]}</div>
+
+                    <!--- Submit button --->
+                    <large-button-element ?canBeClicked=${this.isFormValid} @click=${() => alert(Texts["AccountCreated"])}>${Texts["CreateAccount"]}</large-button-element>
 
                     <div class="mt-6 text-grey-dark">
                       ${Texts["Already have an account?"]}

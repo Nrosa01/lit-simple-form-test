@@ -12,5 +12,6 @@
     "EmailErrorLabel": "Email must be in the format user@domain.com",
     "PasswordErrorLabel": "Password must be 8 characters long, contain at least 1 uppercase letter, 1 lowercase letter, and 1 number",
     "NoSpecialCharacters": "Password cannot contain special characters",
-    "ConfirmPasswordErrorLabel": "Passwords do not match"
+    "ConfirmPasswordErrorLabel": "Passwords do not match",
+    "AccountCreated": "Account Created"
 }
