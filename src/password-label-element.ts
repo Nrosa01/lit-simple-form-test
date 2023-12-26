@@ -1,5 +1,5 @@
 import { LitElement, PropertyValueMap, css, html } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, property, query, state } from "lit/decorators.js";
 import { TWStyles } from "../tailwind/twlit.js";
 
 import eye from "/eye.svg";
@@ -21,16 +21,19 @@ export class PasswordLabelElement extends LitElement {
 
   private togglePasswordVisibility() {
     this.type = `${this.isVisible ? "password" : "text"}`;
-    //this.inputField.type = this.type;
+    this.inputField.type = this.type;
     this.isVisible = !this.isVisible;
-    this.icon = this.isVisible ? eye_slash : eye;
+    this.icon = this.isVisible ? eye : eye_slash;
   }
 
   type = "password";
   isVisible = false;
 
+  @query("#inputField")
+  inputField!: HTMLInputElement;
+
   @state()
-  icon = eye;
+  icon = eye_slash;
 
   @property()
   title = "Title";
@@ -79,10 +82,12 @@ export class PasswordLabelElement extends LitElement {
           <label class="block" for="${this.title}">${this.title}</label>
           <div class="relative">
           <input
+            id="inputField"
             placeholder="${this.title}"
             .value="${this.value}"
             class="${this.classes}"
             .disabled="${this.disabled}"
+            type="password"
             @input="${this.onInput}"
           />
 

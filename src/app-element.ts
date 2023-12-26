@@ -65,7 +65,7 @@ export class AppElement extends LitElement {
     // Non reactive properties
     name = "";
     email = "";
-    @state()
+    @state() // This one is reactive because of line 108
     password = "";
     confirmPassword = "";
 
