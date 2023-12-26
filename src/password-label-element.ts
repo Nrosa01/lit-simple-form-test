@@ -1,6 +1,6 @@
 import { LitElement, PropertyValueMap, css, html } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
-import { TWStyles } from "../tailwind/twlit.js";
+import { TWStyles } from "./tailwind/twlit.js";
 
 import eye from "/eye.svg";
 import eye_slash from "/eye-slash.svg";

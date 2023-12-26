@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { TWStyles } from "../tailwind/twlit.js";
+import { TWStyles } from "./tailwind/twlit.js";
 import unity from '/unity.svg'
 
 @customElement('icon-element')

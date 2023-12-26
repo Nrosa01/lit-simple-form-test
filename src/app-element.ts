@@ -1,6 +1,6 @@
 import { LitElement, TemplateResult, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
-import { TWStyles } from "../tailwind/twlit.js";
+import { TWStyles } from "./tailwind/twlit.js";
 import Texts from "./assets/data/en.json";
 // import { FormLabelElement } from "./form-label-element";
 

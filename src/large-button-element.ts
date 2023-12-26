@@ -1,6 +1,6 @@
 import { LitElement, PropertyValues, css, html } from 'lit'
 import { customElement, property, query, state } from 'lit/decorators.js'
-import { TWStyles } from "../tailwind/twlit.js";
+import { TWStyles } from "./tailwind/twlit.js";
 
 @customElement('large-button-element')
 export class LargeButtonElement extends LitElement {

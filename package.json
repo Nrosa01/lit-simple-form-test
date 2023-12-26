@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"tailwindcss -i .\\Tailwind\\tailwindlib.css -o .\\Tailwind\\tailwind.css --watch\" \"twlit --output .\\Tailwind\\twlit.js --input .\\Tailwind\\tailwind.css \" ",
-    "build": "tsc && vite build",
+    "dev": "concurrently \"vite\" \"tailwindcss -i .\\src\\Tailwind\\tailwindlib.css -o .\\src\\Tailwind\\tailwind.css --watch\" \"twlit --output .\\src\\Tailwind\\twlit.js --input .\\src\\Tailwind\\tailwind.css \" ",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
