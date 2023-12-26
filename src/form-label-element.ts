@@ -33,13 +33,13 @@ export class FormLabelElement extends LitElement {
   protected onInput(e: Event): void {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
-    //</div>this.classes = `w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 ${this.condition ? this.conditionMetClass : this.conditionNotMetClass}`;
 
     // Dispatches an event that bubbles through the DOM.
     this.dispatchEvent(
       new CustomEvent('onInput', {
         detail: {
           value: this.value,
+          title: this.title,
         },
         bubbles: true,
         composed: true,
